@@ -1,6 +1,6 @@
+flask
 python-pptx
 pytesseract
 opencv-python-headless
 python-docx
-flask
-ollama  # Para IA local (opcional)
+ollama
