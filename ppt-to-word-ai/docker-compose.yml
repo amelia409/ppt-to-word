@@ -7,24 +7,34 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
 
   app:
     build: .
     volumes:
-      - .:/app
+      - ./assets:/app/assets
+      - .:/app  # <<--- Esta línea estaba mal (usaba ".../app")
     ports:
       - "5000:5000"
     depends_on:
       - ollama
+    environment:
+      - OLLAMA_HOST=ollama
+      - FLASK_ENV=development
 
   n8n:
     image: n8nio/n8n
     ports:
       - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=password
+      - N8N_HOST=app
 
 volumes:
   ollama_data:
+  n8n_data:
