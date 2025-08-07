@@ -1,27 +1,16 @@
 version: '3.8'
 
 services:
-  ollama:
-    image: ollama/ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    environment:
-      - OLLAMA_HOST=0.0.0.0
-
   app:
     build: .
     volumes:
       - ./assets:/app/assets
-      - .:/app  # <<--- Esta línea estaba mal (usaba ".../app")
+      - .:/app
     ports:
       - "5000:5000"
-    depends_on:
-      - ollama
     environment:
-      - OLLAMA_HOST=ollama
       - FLASK_ENV=development
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
 
   n8n:
     image: n8nio/n8n
@@ -36,5 +25,4 @@ services:
       - N8N_HOST=app
 
 volumes:
-  ollama_data:
   n8n_data:

@@ -1,0 +1,20 @@
+# Archivos de configuración sensibles
+.env
+
+# Archivos temporales
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de salida generados
+assets/output/*.docx
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+.dockerignore

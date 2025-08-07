@@ -25,6 +25,6 @@ ENV PYTHONPATH=/app/src:/app
 ENV FLASK_APP=main.py
 ENV FLASK_ENV=production
 
-# 5. Configuración de Gunicorn (mejorada)
+# 5. Configuración de Gunicorn (mejorada para IA)
 EXPOSE 5000
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "120", "--workers", "2", "src.main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "300", "--workers", "1", "src.main:app"]
