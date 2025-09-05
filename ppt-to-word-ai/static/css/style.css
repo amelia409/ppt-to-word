@@ -1,0 +1,226 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 标题样式 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+/* 上传区域样式 */
+.upload-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.upload-area {
+    border: 2px dashed #3498db;
+    border-radius: 5px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.upload-area:hover {
+    border-color: #2980b9;
+    background-color: #f7f9fa;
+}
+
+.upload-area.highlight {
+    border-color: #27ae60;
+    background-color: #e8f5e9;
+}
+
+.upload-icon {
+    font-size: 48px;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.upload-text {
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.file-types {
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+.file-input {
+    display: none;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.btn-upload {
+    width: 100%;
+}
+
+.btn-download {
+    background-color: #27ae60;
+}
+
+.btn-download:hover {
+    background-color: #219653;
+}
+
+/* 状态区域样式 */
+.status-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: none;
+}
+
+.status-container.show {
+    display: block;
+}
+
+.status-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3498db;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.status-text {
+    color: #7f8c8d;
+    text-align: center;
+}
+
+/* 结果区域样式 */
+.result-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none;
+}
+
+.result-container.show {
+    display: block;
+}
+
+.result-icon {
+    font-size: 48px;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.result-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.result-text {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+/* 错误消息样式 */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .upload-container,
+    .status-container,
+    .result-container {
+        padding: 15px;
+    }
+    
+    .upload-area {
+        padding: 30px 15px;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+}

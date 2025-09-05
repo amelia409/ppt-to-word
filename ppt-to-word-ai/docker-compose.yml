@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   app:
@@ -10,7 +10,9 @@ services:
       - "5000:5000"
     environment:
       - FLASK_ENV=development
+      - AI_MODEL_TYPE=${AI_MODEL_TYPE:-gemini}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - ARK_API_KEY=${ARK_API_KEY}
 
   n8n:
     image: n8nio/n8n

@@ -3,14 +3,18 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # 1. Dependencias del sistema (optimizado)
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr \
     tesseract-ocr-spa \
+    tesseract-ocr-chi-sim \
     poppler-utils \
     ghostscript \
-    libgl1-mesa-glx \
+    libgl1-mesa-dri \ 
+    fonts-wqy-microhei \
+    fonts-wqy-zenhei \
+    # libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
-
 # 2. Instalación de dependencias Python (en dos etapas para mejor caching)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && \
@@ -19,6 +23,8 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 # 3. Copia de código con estructura correcta
 COPY src/ src/
 COPY assets/ assets/
+COPY static/ static/
+COPY templates/ templates/
 
 # 4. Configuración de entorno (actualizada)
 ENV PYTHONPATH=/app/src:/app
