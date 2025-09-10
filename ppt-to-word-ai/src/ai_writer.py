@@ -203,16 +203,16 @@ def generate_explanation(content: str) -> str:
             return response.text  # 返回生成的文本
         elif model_type.lower() == 'volcengine':
             # 调用火山引擎大模型生成内容
-            completion = client.chat.completions.create(
+            response = client.chat.completions.create(
                 model = os.getenv('model_id'),
                 messages=[
-                    {"role": "system", "content": "你是一个精通创建高质量初中学科教学材料的专家。"},
-                    {"role": "user", "content": f"待处理的内容：\n{clean_content}\n\n{prompt}"}
+                    {"role": "user", "content":f"{prompt}"}
                 ],
+                thinking={"type": "disabled"},
                 temperature=0.3,  # 较低的温度值，使输出更保守、更可预测，适合学术内容
                 top_p=0.9  # 控制输出多样性的参数
             )
-            return completion.choices[0].message.content  # 返回生成的文本
+            return response.choices[0].message.content  # 返回生成的文本
     except Exception as e:
         # 错误处理机制
         return f"AI内容生成错误: {str(e)}\n\n原始内容:\n{clean_content}"  # 返回错误信息和原始内容

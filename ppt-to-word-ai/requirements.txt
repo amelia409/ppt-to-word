@@ -4,7 +4,7 @@ pytesseract==0.3.10
 opencv-python-headless==4.7.0.72
 python-docx==0.8.11
 # google-generativeai==0.3.2  # 注释掉谷歌Gemini模型SDK
-volcengine-python-sdk[ark]==1.0.103  # 添加火山引擎大模型SDK
+volcengine-python-sdk[ark]  # 添加火山引擎大模型SDK
 pdf2image==1.16.3
 Pillow==10.0.0
 pymupdf==1.22.5

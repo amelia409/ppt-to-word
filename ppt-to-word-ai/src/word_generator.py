@@ -73,16 +73,17 @@ def create_word_document(content: list, original_filename: str) -> str:
                     line = line.strip()  # 去除行首尾空白
                     if not line:  # 跳过空行
                         continue
-                        
-                    if line.startswith('##'):
-                        # 主标题（一级标题）
-                        doc.add_heading(line[2:].strip(), level=1)
+                    
+                    if line.startswith('####'):
+                        # 小标题（三级标题）
+                        doc.add_heading(line[4:].strip(), level=3)                        
                     elif line.startswith('###'):
                         # 副标题（二级标题）
                         doc.add_heading(line[3:].strip(), level=2)
-                    elif line.startswith('####'):
-                        # 小标题（三级标题）
-                        doc.add_heading(line[4:].strip(), level=3)
+                    elif line.startswith('##'):
+                        # 主标题（一级标题）
+                        doc.add_heading(line[2:].strip(), level=1)
+
                     elif line.startswith('•') or line.startswith('- ') or line.startswith('* '):
                         # 项目符号列表（无序列表）
                         # 根据不同的项目符号类型提取文本内容
